@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "benctw@gmail.com"
+      }
+    },
+    "name": "中央機房myGPTs快捷連結",
+    "version": "1.0",
+    "description": "根據中央大學的EEClass課程編號，於EEClass頁面加載中央機房myGPTs的連結。中央機房是非營利的教學實驗平台，由中央大學通識教育中心張家凱老師負責維運研究。",
+    "permissions": ["https://ncueeclass.ncu.edu.tw/*"],
+    "content_scripts": [
+      {
+        "matches": ["https://ncueeclass.ncu.edu.tw/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "action": {
+      "default_icon": "icon_128.png"
+    },
+    "icons": {
+      "16": "icon_16.png",
+      "48": "icon_48.png",
+      "128": "icon_128.png"
+    }
+  }
+  
