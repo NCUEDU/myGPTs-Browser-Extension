@@ -5,14 +5,22 @@ pageTitles.forEach(function (pageTitle) {
     var content = pageTitle.textContent; // 取出內容
 
     // 正則表達式來匹配所需內容
-    var regex = /[A-Za-z]{2}\d{4}/;
-    var match = content.match(regex);
-    var result = match ? match[0] : null; // 如果匹配成功，則取匹配的結果
+    // var regex = /[A-Za-z]{2}\d{4}/;
+    // var match = content.match(regex);
+    // var result = match ? match[0] : null; // 如果匹配成功，則取匹配的結果
 
     // 創建超連結元素
     var link = document.createElement('a');
     link.textContent = ' myGPTs';
-    link.href = 'https://ncuedu.tw/browser/extension/goto/mygpts/' + result;
+    var hostname = window.location.hostname;
+    if (hostname === "ncueeclass.ncu.edu.tw") {
+        link.href = 'https://nc.uedu.tw/goto/' + content;
+    } else if (hostname === "im.tmu.edu.tw") {
+        link.href = 'https://tm.uedu.tw/goto/' + content;
+    } else {
+        link.href = 'https://uedu.tw/goto/' + content; // 預設連結
+    }
+    // link.href = 'https://ncuedu.tw/browser/extension/goto/mygpts/' + content;
 
     // // 將超連結插入到標題元素後面
     // pageTitle.insertAdjacentElement('afterend', link);
@@ -34,14 +42,21 @@ pageTitles.forEach(function (pageTitle) {
     var content = pageTitle.textContent; // 取出內容
 
     // 正則表達式來匹配所需內容
-    var regex = /[A-Za-z]{2}\d{4}/;
-    var match = content.match(regex);
-    var result = match ? match[0] : null; // 如果匹配成功，則取匹配的結果
+    // var regex = /[A-Za-z]{2}\d{4}/;
+    // var match = content.match(regex);
+    // var result = match ? match[0] : null; // 如果匹配成功，則取匹配的結果
 
     // 創建超連結元素
     var link = document.createElement('a');
     link.textContent = ' myGPTs';
-    link.href = 'https://ncuedu.tw/browser/extension/goto/mygpts/' + result;
+    if (hostname === "ncueeclass.ncu.edu.tw") {
+        link.href = 'https://nc.uedu.tw/goto/' + content;
+    } else if (hostname === "im.tmu.edu.tw") {
+        link.href = 'https://tm.uedu.tw/goto/' + content;
+    } else {
+        link.href = 'https://uedu.tw/goto/' + content; // 預設連結
+    }
+    // link.href = 'https://ncuedu.tw/browser/extension/goto/mygpts/' + content;
 
     // 將超連結插入到標題元素後面
     pageTitle.insertAdjacentElement('afterend', link);
